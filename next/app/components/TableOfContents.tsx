@@ -76,19 +76,27 @@ export function TableOfContents(props: Props) {
   useEffect(() => {
     function onIntersection(e: Event) {
       if (isCustomEvent(e)) {
+        // Ignore when inViewPort = false, i.e. <h2> drops off the viewport,
+        // to keep the current highlight in table-of-contents
+        if (!e.detail.inViewPort) {
+          // Caveat: Ignoring inViewPort = false has a drawback that scrolling *UP* is not handled correctly.
+          // e.g. highlighting id = 4, then scroll up, and ypu see the highlight stays at id = 4,
+          //      but it should be id = 3 to be highlighted
+          return;
+        }
+        // From here, porocess CustomEvent only when inViewPort = true
+
         const updatedParts = [...parts];
 
-        // Find target from state
-        const target = updatedParts.find(
-          (p) => p.targetId === e.detail.targetId
-        );
-        if (!target) {
-          return; // target not found
+        for (const p of updatedParts) {
+          if (p.targetId === e.detail.targetId) {
+            p.inViewPort = true;
+          } else {
+            p.inViewPort = false;
+          }
         }
 
-        // this updates the updatedParts[] in-place ...
-        target.inViewPort = e.detail.inViewPort;
-        // ... so that you can call this
+        // Find target from state
         setParts(updatedParts);
 
         console.log(updatedParts);
