@@ -1,4 +1,18 @@
 .component {
-  max-width: 1080px;
+  max-width: 70rem;
   margin: 0 auto;
+}
+
+.columns {
+  display: flex;
+  column-gap: 1rem;
+}
+
+.articleColumn {
+  flex-basis: 50rem;
+}
+
+.tocColumn {
+  max-width: 20rem;
+  flex-basis: 20rem;
 }
