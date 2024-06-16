@@ -20,7 +20,7 @@
   flex-basis: 20rem;
 }
 
-@media (max-width: 50rem) {
+@media (max-width: 25rem) {
   .tocColumn {
     display: none;
   }
