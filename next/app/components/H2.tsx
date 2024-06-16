@@ -15,7 +15,10 @@ export function H2(props: Props) {
     if (ref.current) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((e) => {
-          console.log(e.isIntersecting, e.target.textContent);
+          const event = new CustomEvent("onIntersection", {
+            detail: { targetId: e.target.id, inViewPort: e.isIntersecting },
+          });
+          document.dispatchEvent(event);
         });
       });
 
