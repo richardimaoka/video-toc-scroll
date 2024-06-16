@@ -5,14 +5,14 @@ interface Props {}
 
 export function TableOfContents(props: Props) {
   return (
-    <div>
+    <div className={styles.component}>
       <Link href="#1">
         <div>一、親譲りの無鉄砲</div>
       </Link>
       <Link href="#2">
         <div>二、ぶうと云つて汽船がとまる</div>
       </Link>
-      <Link href="#3">
+      <Link className={styles.highlighted} href="#3">
         <div>三、愈学校へ出た</div>
       </Link>
       <Link href="#4">

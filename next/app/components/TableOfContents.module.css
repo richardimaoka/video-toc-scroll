@@ -1,0 +1,8 @@
+.component {
+  top: 20px;
+  position: sticky;
+}
+
+.highlighted {
+  background-color: #4579d8;
+}

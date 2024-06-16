@@ -1,6 +1,8 @@
 .component {
   max-width: 70rem;
   margin: 0 auto;
+  padding-right: 2rem;
+  padding-left: 2rem;
 }
 
 .columns {
@@ -9,10 +11,17 @@
 }
 
 .articleColumn {
+  /* flex algorithm tries to make the column width as close as flex-basis */
   flex-basis: 50rem;
 }
 
 .tocColumn {
   max-width: 20rem;
   flex-basis: 20rem;
+}
+
+@media (max-width: 50rem) {
+  .tocColumn {
+    display: none;
+  }
 }
