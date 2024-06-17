@@ -111,7 +111,15 @@ export function TableOfContents(props: Props) {
     <div className={styles.component}>
       {parts.map((s) => (
         <Link key={s.targetId} href={"#" + s.targetId}>
-          <div className={s.inViewPort ? styles.highlighted : ""}>{s.name}</div>
+          <div
+            className={
+              s.inViewPort
+                ? styles.item + " " + styles.highlighted
+                : styles.item
+            }
+          >
+            {s.name}
+          </div>
         </Link>
       ))}
     </div>

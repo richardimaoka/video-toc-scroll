@@ -3,6 +3,10 @@
   position: sticky;
 }
 
+.item {
+  margin-bottom: 0.5rem;
+}
+
 .highlighted {
   background-color: #4579d8;
   color: white;
